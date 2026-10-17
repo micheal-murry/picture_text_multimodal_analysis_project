@@ -1,0 +1,94 @@
+2026-05-26 13:27:26,108 [INFO] ======================================================================
+2026-05-26 13:27:26,110 [INFO] 第六步：描述性统计与差异分析  开始执行
+2026-05-26 13:27:26,110 [INFO] 执行时间：2026-05-26 13:27:26
+2026-05-26 13:27:26,110 [INFO] ======================================================================
+2026-05-26 13:27:26,110 [INFO] 中文字体已设置为：SimHei
+2026-05-26 13:27:26,111 [INFO] 
+[6-1] 读取输入文件 ...
+2026-05-26 13:27:26,179 [INFO]   已读取 D:\Desktop\outputs\propagation_metrics.csv  →  4129 行 × 56 列
+2026-05-26 13:27:26,197 [INFO]   已读取 D:\Desktop\outputs\text_features.csv  →  4129 行 × 22 列
+2026-05-26 13:27:26,213 [INFO]   已读取 D:\Desktop\outputs\image_features.csv  →  4129 行 × 19 列
+2026-05-26 13:27:26,225 [INFO]   已读取 D:\Desktop\outputs\ocr_features.csv  →  4129 行 × 9 列
+2026-05-26 13:27:26,247 [INFO]   已读取 D:\Desktop\outputs\multimodal_features.csv  →  4129 行 × 29 列
+2026-05-26 13:27:26,247 [INFO] 
+[6-2] 以 bvid 为主键合并数据 ...
+2026-05-26 13:27:26,253 [INFO]   合并 text_features：跳过重复列 ['title']
+2026-05-26 13:27:26,269 [INFO]   合并后数据集：4129 行 × 130 列
+2026-05-26 13:27:26,270 [WARNING]   列 cover_has_chart_or_formula 不存在于任何输入文件，已填充 NaN，请在后续步骤补全。
+2026-05-26 13:27:26,270 [WARNING]   列 cover_is_slide_or_screenshot 不存在于任何输入文件，已填充 NaN，请在后续步骤补全。
+2026-05-26 13:27:26,271 [WARNING]   列 cover_acgn_style 不存在于任何输入文件，已填充 NaN，请在后续步骤补全。
+2026-05-26 13:27:26,280 [INFO]   存在缺失值的列（共 9 列）：
+2026-05-26 13:27:26,281 [INFO]     tags: 1 缺失 (0.0%)
+2026-05-26 13:27:26,281 [INFO]     description: 1105 缺失 (26.8%)
+2026-05-26 13:27:26,281 [INFO]     title_number_phrase: 1929 缺失 (46.7%)
+2026-05-26 13:27:26,281 [INFO]     cover_text: 227 缺失 (5.5%)
+2026-05-26 13:27:26,281 [INFO]     cover_text_sentiment_score: 4129 缺失 (100.0%)
+2026-05-26 13:27:26,281 [INFO]     cover_text_sentiment_intensity: 4129 缺失 (100.0%)
+2026-05-26 13:27:26,281 [INFO]     cover_has_chart_or_formula: 4129 缺失 (100.0%)
+2026-05-26 13:27:26,281 [INFO]     cover_is_slide_or_screenshot: 4129 缺失 (100.0%)
+2026-05-26 13:27:26,281 [INFO]     cover_acgn_style: 4129 缺失 (100.0%)
+2026-05-26 13:27:26,540 [INFO] 
+  已保存建模数据集 → D:\Desktop\outputs\modeling_dataset.csv
+2026-05-26 13:27:26,540 [INFO] 
+[6-3] 生成表1：样本基本情况 ...
+2026-05-26 13:27:26,541 [INFO]   样本总数：4129，UP主数量：68
+2026-05-26 13:27:26,552 [INFO] 
+[6-4] 生成表2：不同知识领域传播效果比较 ...
+2026-05-26 13:27:26,564 [INFO] 
+[6-5] 生成表3：标题文本特征描述 ...
+2026-05-26 13:27:26,566 [INFO] 
+[6-6] 生成表4：封面图像特征描述 ...
+2026-05-26 13:27:26,569 [WARNING]   表4：列 cover_has_chart_or_formula 数据缺失，标注为'数据待补全'
+2026-05-26 13:27:26,570 [WARNING]   表4：列 cover_is_slide_or_screenshot 数据缺失，标注为'数据待补全'
+2026-05-26 13:27:26,570 [WARNING]   表4：列 cover_acgn_style 数据缺失，标注为'数据待补全'
+2026-05-26 13:27:26,570 [INFO] 
+[6-7] 生成表5：双模态协同特征描述 ...
+2026-05-26 13:27:26,574 [INFO] 
+[6-8] 构造高/低传播组 ...
+2026-05-26 13:27:26,575 [INFO]   log_view_per_day: 中位数=5.5011, Q25=3.6002, Q75=7.6696
+2026-05-26 13:27:26,577 [INFO]   median_group: 高=2065, 低=2064
+2026-05-26 13:27:26,578 [INFO]   q_group: 高=1033, 中间=2063(排除), 低=1033
+2026-05-26 13:27:26,579 [INFO] 
+[6-9] 执行差异检验 ...
+2026-05-26 13:27:26,762 [WARNING]   [差异检验] 跳过分类变量 cover_has_chart_or_formula（列不存在或全为 NaN）
+2026-05-26 13:27:26,762 [WARNING]   [差异检验] 跳过分类变量 cover_is_slide_or_screenshot（列不存在或全为 NaN）
+2026-05-26 13:27:26,763 [WARNING]   [差异检验] 跳过分类变量 cover_acgn_style（列不存在或全为 NaN）
+2026-05-26 13:27:26,954 [WARNING]   [差异检验] 跳过分类变量 cover_has_chart_or_formula（列不存在或全为 NaN）
+2026-05-26 13:27:26,954 [WARNING]   [差异检验] 跳过分类变量 cover_is_slide_or_screenshot（列不存在或全为 NaN）
+2026-05-26 13:27:26,955 [WARNING]   [差异检验] 跳过分类变量 cover_acgn_style（列不存在或全为 NaN）
+2026-05-26 13:27:26,996 [INFO]   median_group 差异检验完成：35 行
+2026-05-26 13:27:26,997 [INFO]   q_group      差异检验完成：35 行
+2026-05-26 13:27:26,997 [INFO] 
+[6-10] 写入 Excel 文件 ...
+2026-05-26 13:27:27,138 [INFO]   已保存 → D:\Desktop\outputs\descriptive_tables.xlsx
+2026-05-26 13:27:27,301 [INFO]   已保存 → D:\Desktop\outputs\difference_tests.xlsx
+2026-05-26 13:27:27,302 [INFO] 
+[6-11] 绘制图表 ...
+2026-05-26 13:27:27,578 [INFO]   图1 已保存 → D:\Desktop\outputs\figures\domain_spread_bar.png
+2026-05-26 13:27:27,781 [INFO]   图2 已保存 → D:\Desktop\outputs\figures\multimodal_type_spread_bar.png
+2026-05-26 13:27:28,020 [INFO]   图3 已保存 → D:\Desktop\outputs\figures\high_low_image_title_fit_boxplot.png
+2026-05-26 13:27:28,262 [INFO]   图4 已保存 → D:\Desktop\outputs\figures\high_low_title_overlap_boxplot.png
+2026-05-26 13:27:28,583 [INFO]   图5 已保存 → D:\Desktop\outputs\figures\high_low_title_features_bar.png
+2026-05-26 13:27:28,583 [INFO] 
+[6-12] 生成质量检查报告 ...
+2026-05-26 13:27:28,591 [INFO]   日志/质量报告 → D:\Desktop\outputs\logs\step6_quality_report.txt
+2026-05-26 13:27:28,591 [INFO] 
+======================================================================
+2026-05-26 13:27:28,591 [INFO] 第六步执行完毕，输出文件汇总：
+2026-05-26 13:27:28,592 [INFO]   [✓] 建模数据集: D:\Desktop\outputs\modeling_dataset.csv
+2026-05-26 13:27:28,592 [INFO]   [✓] 描述性统计表: D:\Desktop\outputs\descriptive_tables.xlsx
+2026-05-26 13:27:28,592 [INFO]   [✓] 差异检验表: D:\Desktop\outputs\difference_tests.xlsx
+2026-05-26 13:27:28,592 [INFO]   [✓] 图1-领域传播: D:\Desktop\outputs\figures\domain_spread_bar.png
+2026-05-26 13:27:28,592 [INFO]   [✓] 图2-双模态类型: D:\Desktop\outputs\figures\multimodal_type_spread_bar.png
+2026-05-26 13:27:28,592 [INFO]   [✓] 图3-语义一致性箱线图: D:\Desktop\outputs\figures\high_low_image_title_fit_boxplot.png
+2026-05-26 13:27:28,592 [INFO]   [✓] 图4-文字重叠度箱线图: D:\Desktop\outputs\figures\high_low_title_overlap_boxplot.png
+2026-05-26 13:27:28,592 [INFO]   [✓] 图5-标题特征对比图: D:\Desktop\outputs\figures\high_low_title_features_bar.png
+2026-05-26 13:27:28,592 [INFO]   [✓] 质量报告日志: D:\Desktop\outputs\logs\step6_quality_report.txt
+2026-05-26 13:27:28,592 [INFO] ======================================================================
+\Desktop\outputs\figures\domain_spread_bar.png
+   [✓] D:\Desktop\outputs\figures\multimodal_type_spread_bar.png
+   [✓] D:\Desktop\outputs\figures\high_low_image_title_fit_boxplot.png
+   [✓] D:\Desktop\outputs\figures\high_low_title_overlap_boxplot.png
+   [✓] D:\Desktop\outputs\figures\high_low_title_features_bar.png
+
+执行完成时间：2026-05-26 13:27:28

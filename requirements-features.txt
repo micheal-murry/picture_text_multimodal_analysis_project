@@ -1,0 +1,32 @@
+# ===== 可选：从0复现采集管道与封面特征（步骤4）时安装 =====
+# 体积较大（torch / OCR / 目标检测），普通分析无需安装；
+# 仓库已提交 image_features.csv、ocr_features.csv 等成品特征数据。
+-r requirements.txt
+
+# 异步采集
+aiohttp>=3.9
+
+# 封面基础视觉特征
+pillow>=10.0
+opencv-python-headless>=4.8
+
+# 封面 OCR（二选一，PaddleOCR 优先）
+paddleocr>=2.7
+paddlepaddle>=2.5
+# easyocr>=1.7
+
+# 人物/人脸检测
+ultralytics>=8.1
+# mediapipe>=0.10
+
+# 中文情感（封面OCR文字情感）
+snownlp>=0.12
+
+# 标题情感 RoBERTa（可选；未安装时 step03 自动降级为中文情感词典法）
+transformers>=4.40
+torch>=2.1
+
+# 双模态图文语义匹配（可选；未安装时脚本自动降级为视觉-文本代理指标）
+# torch>=2.1
+# torchvision>=0.16
+# cn-clip>=1.5

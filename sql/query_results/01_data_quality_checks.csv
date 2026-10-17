@@ -1,0 +1,16 @@
+﻿check_item,bad_cnt,rule_desc
+1.主键唯一_bvid,0,video_base 中 bvid 必须唯一
+2.跨表完整性_指标表,0,video_base 每条视频在 video_metrics 中都应有一条记录
+3.跨表完整性_文本特征,0,video_base 每条视频在 text_features 中都应有一条记录
+4.跨表完整性_双模态特征,0,video_base 每条视频在 multimodal 中都应有一条记录
+5.标题缺失,0,title 不应为空
+6.播放量负值,0,view 应 >= 0
+7.时长异常,0,duration 应为正且 <= 36944 秒（约10小时，研究样本最大值）
+8.发布时间超范围,0,pubdate 应落在 2025 年内
+9.知识领域枚举非法,0,domain 只能是四个研究领域之一
+10.UP层级枚举非法,0,level 只能取 -1/0/1（低/中/高）
+11.点赞率越界,0,"like_rate 应在 [0,1] 区间"
+12.投币率越界,0,"coin_rate 应在 [0,1] 区间"
+13.指标口径一致性,0,log_view 应等于 ln(view+1)
+14.UP主视频数对账,0,up_master 聚合的 video_count 应与事实表一致
+15.封面缺失标记,0,cover_exists=0 表示缺封面，应为 0 条（清洗后样本）

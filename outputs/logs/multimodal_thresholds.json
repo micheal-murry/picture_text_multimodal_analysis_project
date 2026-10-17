@@ -1,0 +1,83 @@
+{
+  "compute_time": "2026-05-26T23:58:27.609558",
+  "sample_n": 4129,
+  "clip_method": "proxy:visual_text_cosine",
+  "model_load_log": [
+    {
+      "model": "cn_clip",
+      "status": "ImportError",
+      "fallback": true
+    },
+    {
+      "model": "BAAI/AltCLIP",
+      "status": "We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cac",
+      "fallback": true
+    },
+    {
+      "model": "openai/clip-vit-base-patch32",
+      "status": "We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cac",
+      "fallback": true
+    },
+    {
+      "model": "sentence-transformers/clip-ViT-B-32-multilingual-v1",
+      "status": "We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cac",
+      "fallback": true
+    }
+  ],
+  "image_title_fit": {
+    "method": "0.7*proxy_visual_cosine + 0.3*ocr_tfidf_norm",
+    "visual_features": [
+      "image_brightness",
+      "image_contrast",
+      "image_saturation",
+      "image_colorfulness",
+      "visual_complexity",
+      "edge_density",
+      "human_presence"
+    ],
+    "textual_features": [
+      "title_char_len",
+      "title_word_count",
+      "title_has_number",
+      "title_has_practical_value",
+      "title_sentiment_intensity",
+      "title_has_curiosity",
+      "title_question_type"
+    ],
+    "range": [
+      0.0,
+      0.899629598509432
+    ],
+    "mean": 0.44388231414853885,
+    "std": 0.17468550107226427
+  },
+  "cover_sentiment_valence_discretization": {
+    "Q25": -0.0005012601613998,
+    "median": -0.0002133324742317,
+    "Q75": 0.0001291800290346,
+    "rule": "positive>Q75, negative<Q25, else neutral"
+  },
+  "sentiment_intensity_normalization": {
+    "title_q75": 0.0,
+    "cover_q75": 0.6125171563526094
+  },
+  "image_title_fit_quantiles": {
+    "Q25": 0.3155467622547291,
+    "Q50": 0.4396528826886549,
+    "Q75": 0.5767549448290012
+  },
+  "title_cover_text_overlap_quantiles": {
+    "Q25": 0.0,
+    "Q75": 0.23267259101789756
+  },
+  "complementarity_type_rules": {
+    "P1_emotional_conflict": "sentiment_conflict==1",
+    "P2_low_relatedness": "low_semantic_fit==1 AND low_text_overlap==1",
+    "P3_redundant_reinforcement": "high_semantic_fit==1 AND high_text_overlap==1",
+    "P4_high_synergy": "high_semantic_fit==1 AND sentiment_consistency==1 AND NOT high_text_overlap",
+    "P5_complementary_explanation": "high_semantic_fit==1 AND low_text_overlap==1 (also fit>Q50)",
+    "P5b_complementary_explanation_ext": "fit>Q50 AND low_text_overlap==1 AND no conflict",
+    "P6_curiosity_contrast": "title_question_type==1 OR title_has_curiosity==1",
+    "Pdef_default": "by fit>median split"
+  }
+}
